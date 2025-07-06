@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Polling Sederhana</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        .poll { border: 1px solid #ccc; padding: 20px; max-width: 400px; }
+        .poll h3 { margin-top: 0; }
+        .poll button { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="poll">
+        <h3>Apakah Anda suka website ini?</h3>
+        <form id="pollForm" method="post" action="proses.php" onsubmit="return validateForm()">
+            <input type="radio" name="vote" value="yes"> Ya<br>
+            <input type="radio" name="vote" value="no"> Tidak<br>
+            <input type="radio" name="vote" value="maybe"> Mungkin<br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            const radios = document.getElementsByName('vote');
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) return true;
+            }
+            alert('Silakan pilih salah satu opsi sebelum submit.');
+            return false;
+        }
+    </script>
+</body>
+</html>
